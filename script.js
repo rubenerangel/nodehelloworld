@@ -41,7 +41,7 @@ async function run() {
     console.log(data);
     console.log(` page ${pageNumber} of ${data.totalPages} completed;`);
 
-    if (pageNumber <= data.totalPages - 141) {
+    if (pageNumber <= data.totalPages - data.totalPages) {
       getPageData(pageNumber + 1);
     } else {
       // fs.writeFile('data.json', JSON.stringify(reviews), () => {
