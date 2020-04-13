@@ -3,7 +3,7 @@ const { exec } = require('child_process');
 var app = express();
 
 app.get('/', function (req, res) {
-  exec('node ./script.js', (error, stdout, stderr) => {
+  exec('ls -la', (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
     }
