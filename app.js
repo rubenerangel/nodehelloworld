@@ -12,9 +12,9 @@ app.get('/', function (req, res) {
       console.log(`stderr: ${stderr}`);
     }
 
-    console.log(`stdout: ${stdout}`);
+    res.send(`stdout: ${stdout}`);
   })
-  res.send('Hello World');
+  //res.send('Hello World');
 });
 
 app.listen(3000, function () {
