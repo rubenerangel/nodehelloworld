@@ -1,6 +1,14 @@
-var express = require('express');
+const express = require('express');
+const util = require('util');
+const execFile = util.promisify(require('child_process').execFile);
 const { exec } = require('child_process');
-var app = express();
+const app = express();
+
+
+async function getVersion() {
+  const { stdout } = await execFile('node', ['--version']);
+  console.log(stdout);
+};
 
 app.get('/', function (req, res) {
   exec('ls -la', (error, stdout, stderr) => {
@@ -11,7 +19,7 @@ app.get('/', function (req, res) {
     if (stderr) {
       console.log(`stderr: ${stderr}`);
     }
-
+    getVersion();
     res.send(`stdout: ${stdout}`);
   })
   //res.send('Hello World');
